@@ -4,9 +4,13 @@ from inspect import getmembers, isfunction
 
 query = "Machine Learning"
 default_scholar_pages = 1
-dwn_dir = os.getcwd()
+dwn_dir = os.getcwd() + "/downloads"
 
+os.makedirs(dwn_dir, exist_ok=True)
 
-print(bot.start(query, default_scholar_pages, dwn_dir))
+# Download Papers
+# bot.start(query, default_scholar_pages, dwn_dir)
 
-# print(start(query, default_scholar_pages, dwn_dir))
+for _, _, papers in (os.walk(dwn_dir)):
+    for paper in papers:
+        print(paper)
